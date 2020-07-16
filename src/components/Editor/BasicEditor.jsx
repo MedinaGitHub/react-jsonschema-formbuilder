@@ -741,7 +741,7 @@ const rangeMeta = (match, key, title, minp, maxp) => ({
 const length = rangeMeta(
   (a) => a.type === "string",
   "length",
-  "Length",
+  "Largo",
   "minLength",
   "maxLength"
 );
@@ -863,7 +863,7 @@ export default class BasicEditor extends React.Component {
   }
 
   static get name() {
-    return "Basic";
+    return "Opciones";
   }
 
   static filter(node) {
@@ -880,7 +880,7 @@ export default class BasicEditor extends React.Component {
       title,
       description,
       required,
-      widget,
+      //widget,
       classNames,
       help,
       placeholder,
@@ -901,14 +901,7 @@ export default class BasicEditor extends React.Component {
       editable.push(
         <List.Item key="addButton">
           <Dropdown trigger={["click"]} overlay={<Menu>{addable}</Menu>}>
-            <Button
-              style={{ width: "100%" }}
-              type="primary"
-              icon={<PlusOutlined />}
-            >
-              {" "}
-              Ver más opciones{" "}
-            </Button>
+            <h1></h1>
           </Dropdown>
         </List.Item>
       );

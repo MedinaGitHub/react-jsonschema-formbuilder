@@ -26,19 +26,16 @@ const basic = {
       datetime: { type: "string", title: "Calendario" },
       file: { type: "string", title: "Archivo" },
       email: { type: "string", title: "Email", format: "email" },
-      rut: { type: "string", title: "Rut", format: "phone-us" },
+      rut: { type: "string", title: "Rut" },
     },
   },
   uiSchema: {
     textarea: { "ui:widget": "textarea" },
-    datetime: { "ui:widget": "datetime" },
+    datetime: { "ui:widget": "date" },
     checkboxes: {
       "ui:widget": "checkboxes",
     },
     file: { "ui:widget": "file" },
-  },
-  customFormats: {
-    "phone-us": /\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4}$/,
   },
 };
 
@@ -51,8 +48,5 @@ module.exports = {
   },
   uiSchema: {
     basic: basic.uiSchema,
-  },
-  customFormats: {
-    basic: basic.customFormats,
   },
 };

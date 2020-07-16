@@ -23,6 +23,7 @@ class App extends Component {
   };
   render() {
     const { settings } = this.props;
+    console.log("this.props", this.props);
     return (
       <Layout>
         <Sider
@@ -45,9 +46,12 @@ class App extends Component {
             <TabPane tab="Editor" style={{ padding: "8px" }} key="0">
               <Tree />
             </TabPane>
+            {/*
+
             <TabPane tab="Settings" style={{ padding: "8px" }} key="1">
               <Settings />
             </TabPane>
+            */}
           </Tabs>
         </Sider>
         <Layout style={{ marginLeft: settings.leftSiderWidth }}>
