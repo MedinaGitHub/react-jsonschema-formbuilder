@@ -1,29 +1,32 @@
 const basic = {
   schema: {
     type: "object",
-    title: "Basic",
+    title: "Opciones",
     properties: {
-      object: { type: "object", title: "Object", properties: {} },
-      text: { type: "string", title: "Text" },
-      checkbox: { type: "boolean", title: "Checkbox" },
+      object: { type: "object", title: "Nueva sección", properties: {} },
+      text: { type: "string", title: "Entrada de Texto (Input)" },
+      checkbox: { type: "boolean", title: "Casilla de verificación" },
       checkboxes: {
         type: "array",
-        title: "Check Boxes",
+        title: "Grupo de casilla de verificación",
         items: {
           type: "string",
-          enum: ["option-1", "option-2", "option-3"],
+          enum: ["opción-1", "opción-2", "opción-3"],
         },
         uniqueItems: true,
       },
       dropdown: {
         type: "string",
-        title: "Dropdown",
+        title: "Selector",
         enum: ["option-1", "option-2", "option-3"],
-        enumNames: ["Option 1", "Option 2", "Option 3"],
+        enumNames: ["Opción 1", "Opción 2", "Opción 3"],
       },
-      number: { type: "number", title: "Number" },
-      textarea: { type: "string", title: "Text Area" },
-      datetime: { type: "string", title: "Date Time" },
+      number: { type: "number", title: "Entrada Numérica" },
+      textarea: { type: "string", title: "Área de texto" },
+      datetime: { type: "string", title: "Calendario" },
+      file: { type: "string", title: "Archivo" },
+      email: { type: "string", title: "Email", format: "email" },
+      rut: { type: "string", title: "Rut", format: "phone-us" },
     },
   },
   uiSchema: {
@@ -32,6 +35,10 @@ const basic = {
     checkboxes: {
       "ui:widget": "checkboxes",
     },
+    file: { "ui:widget": "file" },
+  },
+  customFormats: {
+    "phone-us": /\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4}$/,
   },
 };
 
@@ -44,5 +51,8 @@ module.exports = {
   },
   uiSchema: {
     basic: basic.uiSchema,
+  },
+  customFormats: {
+    basic: basic.customFormats,
   },
 };

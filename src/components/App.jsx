@@ -52,7 +52,7 @@ class App extends Component {
         </Sider>
         <Layout style={{ marginLeft: settings.leftSiderWidth }}>
           <Header style={{ background: "#fff", padding: 0 }}>
-            <Toolbar />
+            {/* <Toolbar />*/}
           </Header>
           <Content style={{ minHeight: 280, padding: "12px 8px" }}>
             <Card
@@ -66,36 +66,38 @@ class App extends Component {
             >
               <FormView />
             </Card>
-            {(settings.subViews || []).map((a) => {
+            {/*
+            (settings.subViews || []).map((a) => {
               const style = {
                 margin: "12px 8px",
                 width: 400,
                 display: "inline-block",
-                verticalAlign: "top",
+                verticalAlign: "top"
               };
               switch (a) {
-                case "schema":
-                  return (
-                    <Card key="schema" title="Schema" style={style}>
-                      <SchemaView />
-                    </Card>
-                  );
-                case "uiSchema":
-                  return (
-                    <Card key="uiSchema" title="Ui Schema" style={style}>
-                      <UiSchemaView />
-                    </Card>
-                  );
-                case "formData":
-                  return (
-                    <Card key="formData" title="Form Data" style={style}>
-                      <FormDataView />
-                    </Card>
-                  );
-                default:
-                  return <div key="null" />;
+              case "schema":
+                return (
+                  <Card key="schema" title="Schema" style={style}>
+                    <SchemaView />
+                  </Card>
+                );
+              case "uiSchema":
+                return (
+                  <Card key="uiSchema" title="Ui Schema" style={style}>
+                    <UiSchemaView />
+                  </Card>
+                );
+              case "formData":
+                return (
+                  <Card key="formData" title="Form Data" style={style}>
+                    <FormDataView />
+                  </Card>
+                );
+              default:
+                return <div key="null" />;
               }
-            })}
+            })
+            */}
           </Content>
         </Layout>
         <Sider

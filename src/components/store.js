@@ -10,11 +10,11 @@ var persistConfig = {
   throttle: 15,
 };
 
-var { schema2tree } = require("../core");
+var { schema2tree } = require("./core");
 
 var form = {
   schema: {
-    title: "A registration form",
+    title: "Formulario",
     description: "A simple form example.",
     type: "object",
     required: ["firstName", "lastName"],

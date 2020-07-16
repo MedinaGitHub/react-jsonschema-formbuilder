@@ -6,7 +6,7 @@ import {
   moveNode,
   updateNode,
   getNodeByRjsfId,
-} from "../core";
+} from "./core";
 import defaultSettings from "./default/settings";
 import defaultMenuSchema from "./default/menu";
 import undoable from "redux-undo";

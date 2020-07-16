@@ -349,27 +349,31 @@ function type({ node: { schema }, updateSchema: update }) {
   const value = (schema || {})[key];
   return [
     null,
-    <FormItemTemplate
-      key={key}
-      title={title}
-      remove={() => update({ [key]: undefined })}
+    <>
+      {" "}
+      {/*
+      <FormItemTemplate
+    key={key}
+    title={title}
+    remove={() => update({ [key]: undefined })}
+  >
+    <Select
+      onChange={(value) => update({ [key]: value })}
+      value={value}
+      style={{ width: "100%" }}
     >
-      <Select
-        onChange={(value) => update({ [key]: value })}
-        value={value}
-        style={{ width: "100%" }}
-      >
-        {availableTypes.map((key) => (
-          <Option key={key}>{key}</Option>
-        ))}
-      </Select>
-    </FormItemTemplate>,
+      {availableTypes.map((key) => (
+        <Option key={key}>{key}</Option>
+      ))}
+    </Select>
+  </FormItemTemplate> */}{" "}
+    </>,
   ];
 }
 
 function title({ node: { schema }, updateSchema: update }) {
   const key = "title";
-  const title = "Title";
+  const title = "Titulo del campo";
   const value = (schema || {})[key];
   if (value === undefined) {
     return [
@@ -392,7 +396,7 @@ function title({ node: { schema }, updateSchema: update }) {
 
 function description({ node: { schema }, updateSchema: update }) {
   const key = "description";
-  const title = "Description";
+  const title = "Descripción";
   const value = (schema || {})[key];
   if (value === undefined) {
     return [
@@ -537,11 +541,12 @@ function classNames({ node: { uiSchema }, updateUiSchema: update }) {
   const key = "classNames";
   const title = "Class Names";
   const value = (uiSchema || {})[key];
+  /*
   if (value === undefined) {
     return [
       <Menu.Item key={key} onClick={() => update({ [key]: "" })}>
         {title}
-      </Menu.Item>,
+      </Menu.Item>
     ];
   } else {
     return [
@@ -551,9 +556,12 @@ function classNames({ node: { uiSchema }, updateUiSchema: update }) {
         title={title}
         value={value}
         onChange={(value) => update({ classNames: value })}
-      />,
+      />
     ];
   }
+  */
+
+  return [null, <> </>];
 }
 
 function placeholder({ node: { schema, uiSchema }, updateUiOptions: update }) {
@@ -897,7 +905,10 @@ export default class BasicEditor extends React.Component {
               style={{ width: "100%" }}
               type="primary"
               icon={<PlusOutlined />}
-            />
+            >
+              {" "}
+              Ver más opciones{" "}
+            </Button>
           </Dropdown>
         </List.Item>
       );
