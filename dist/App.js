@@ -77,12 +77,18 @@ class App extends Component {
             marginLeft: settings.leftSiderWidth,
           },
         },
-        /*#__PURE__*/ React.createElement(Header, {
-          style: {
-            background: "#fff",
-            padding: 0,
+        /*#__PURE__*/ React.createElement(
+          Header,
+          {
+            style: {
+              background: "#fff",
+              padding: 0,
+            },
           },
-        }),
+          /*#__PURE__*/ React.createElement(Toolbar, {
+            customProps: this.props.customProps,
+          })
+        ),
         /*#__PURE__*/ React.createElement(
           Content,
           {
@@ -130,7 +136,7 @@ const AppContainer = connect(({ activeNodeKey, settings }) => ({
   activeNodeKey,
   settings,
 }))(App);
-export default () =>
+export default (props) =>
   /*#__PURE__*/ React.createElement(
     Provider,
     {
@@ -142,6 +148,8 @@ export default () =>
         loading: null,
         persistor: persistor,
       },
-      /*#__PURE__*/ React.createElement(AppContainer, null)
+      /*#__PURE__*/ React.createElement(AppContainer, {
+        customProps: props,
+      })
     )
   );

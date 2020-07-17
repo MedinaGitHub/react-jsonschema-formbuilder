@@ -51,6 +51,25 @@ class Toolbar extends React.Component {
 
     this.save = () => {
       const { name, schema, uiSchema } = this.props.tree.present[0];
+      console.log("this.props.tree.present[0]", this.props.tree.present[0]);
+      console.log("this.props", this.props);
+      var jsonSchemaString = JSON.stringify(
+        {
+          name,
+          schema,
+          uiSchema,
+        },
+        null,
+        2
+      );
+
+      try {
+        this.props.customProps.getJsonSchema.jsonSchema(jsonSchemaString);
+      } catch (error) {
+        console.log("error", error);
+        this.props.customProps.getJsonSchema(jsonSchemaString);
+      }
+
       write(name, {
         name,
         schema,

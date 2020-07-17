@@ -56,7 +56,7 @@ class App extends Component {
         </Sider>
         <Layout style={{ marginLeft: settings.leftSiderWidth }}>
           <Header style={{ background: "#fff", padding: 0 }}>
-            {/* <Toolbar />*/}
+            <Toolbar customProps={this.props.customProps} />
           </Header>
           <Content style={{ minHeight: 280, padding: "12px 8px" }}>
             <Card
@@ -127,10 +127,10 @@ const AppContainer = connect(({ activeNodeKey, settings }) => ({
   activeNodeKey,
   settings,
 }))(App);
-export default () => (
+export default (props) => (
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <AppContainer />
+      <AppContainer customProps={props} />
     </PersistGate>
   </Provider>
 );

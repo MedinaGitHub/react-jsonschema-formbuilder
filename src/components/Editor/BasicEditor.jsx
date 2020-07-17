@@ -891,7 +891,7 @@ export default class BasicEditor extends React.Component {
       range,
       itemRange,
       uniqueItems,
-      format,
+      //format,
     ].map((f) => f(this.props));
 
     const addable = l.map((a) => a[0]).filter((a) => a);

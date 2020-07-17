@@ -44,14 +44,32 @@ class Toolbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+
+    if (this.props.customProps.getJsonSchema) {
+      const { name, schema, uiSchema } = JSON.parse(
+        this.props.customProps.getJsonSchema
+      );
+      this.props.setTree({ name, schema, uiSchema });
+    }
+
+    console.log("hola este es el constructor", props);
   }
   save = () => {
     const { name, schema, uiSchema } = this.props.tree.present[0];
+    console.log("this.props.tree.present[0]", this.props.tree.present[0]);
+    console.log("this.props", this.props);
+    var jsonSchemaString = JSON.stringify({ name, schema, uiSchema }, null, 2);
+    try {
+      this.props.customProps.getJsonSchema(jsonSchemaString);
+    } catch (error) {
+      console.log("error", error);
+    }
     write(name, { name, schema, uiSchema });
   };
   open = async (e) => {
     const s = await read(e);
     try {
+      console.log("JSON.parse(s)", JSON.parse(s));
       const { name, schema, uiSchema } = JSON.parse(s);
       this.props.setTree({ name, schema, uiSchema });
     } catch (e) {
@@ -91,7 +109,7 @@ class Toolbar extends React.Component {
             icon={<SaveOutlined />}
           />
         </Tooltip>
-        <Tooltip title="Undo">
+        <Tooltip title="Deshaser acción">
           <Button
             style={buttonStyle}
             onClick={undo}
@@ -99,7 +117,7 @@ class Toolbar extends React.Component {
             icon={<UndoOutlined />}
           />
         </Tooltip>
-        <Tooltip title="Redo">
+        <Tooltip title="Restaurar acción">
           <Button
             style={buttonStyle}
             onClick={redo}
